@@ -1,13 +1,12 @@
-from time import sleep
+
 
 from faker import Faker
 from playwright.sync_api import Page, expect
 from pytest_playwright.pytest_playwright import page
 
-from base_test import BaseTest
 
 faker = Faker()
-class TestBase():
+class TestTextBox():
 
     def test_text_box(self, page: Page):
         page.goto("https://demoqa.com/text-box")
@@ -24,4 +23,5 @@ class TestBase():
         expect(page.locator('//*[@id="email"]')).to_contain_text(email + "@mail.ru")
         expect(page.locator('p#currentAddress')).to_contain_text(current_address)
         expect(page.locator('p#permanentAddress')).to_contain_text(permanent_address)
+
 
